@@ -74,8 +74,8 @@ def welcome():
 @app.route('/api/v1.0/precipitation')
 def precipitation():
     session = Session(engine)
-    sel = [Measurement.date,Measurement.prcp]
-    queryresult = session.query(*sel).all()
+    qrysel = [Measurement.date,Measurement.prcp]
+    queryresult = session.query(*qrysel).all()
     session.close()
 
     precip = []
@@ -93,8 +93,8 @@ def precipitation():
 @app.route('/api/v1.0/stations')
 def stations():
     session = Session(engine)
-    sel = [Station.station,Station.name]
-    queryresult = session.query(*sel).all()
+    qrysel = [Station.station,Station.name]
+    queryresult = session.query(*qrysel).all()
     session.close()
 
     stations = []
